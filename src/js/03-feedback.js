@@ -4,11 +4,11 @@ const formRef = document.querySelector('form');
 const LOCALSTORAGE_KEY = 'feedback-form-state';
 let localStorageValuesFromForm = {};
 
+
 formRef.addEventListener('input', throttle(handleInputForLocalStorage, 500));
 formRef.addEventListener('submit', handleSubmitBtnClick);
 
 handlePageReloading();
-
 
 function handleInputForLocalStorage(e) {
     localStorageValuesFromForm[e.target.name] = e.target.value;
@@ -30,9 +30,9 @@ function handlePageReloading() {
         formRef.email.value = savingDataFromForm.email || '';
         formRef.message.value = savingDataFromForm.message || '';
     }
+    localStorageValuesFromForm = {savingDataFromForm};
     
 }
 
 
 
-//////////////////////////////////////////////////// //
