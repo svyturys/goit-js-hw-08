@@ -4,7 +4,6 @@ const formRef = document.querySelector('form');
 const LOCALSTORAGE_KEY = 'feedback-form-state';
 let localStorageValuesFromForm = {};
 
-
 formRef.addEventListener('input', throttle(handleInputForLocalStorage, 500));
 formRef.addEventListener('submit', handleSubmitBtnClick);
 
@@ -22,6 +21,7 @@ function handleSubmitBtnClick(e) {
     localStorage.removeItem(LOCALSTORAGE_KEY);
 
     localStorageValuesFromForm = {}
+    // localStorageValuesFromForm = {savingDataFromForm};
 }
 
 function handlePageReloading() {
@@ -30,9 +30,5 @@ function handlePageReloading() {
         formRef.email.value = savingDataFromForm.email || '';
         formRef.message.value = savingDataFromForm.message || '';
     }
-    localStorageValuesFromForm = {savingDataFromForm};
-    
+    // localStorageValuesFromForm = {savingDataFromForm};
 }
-
-
-
